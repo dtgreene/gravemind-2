@@ -7,10 +7,10 @@ import { PokemonAPI } from 'src/pokemon/pokemon.api';
 @Injectable({ scope: Scope.REQUEST })
 export class AnimalsAPI extends GqlDataSource {
   constructor(
-    @Inject(CONTEXT) public readonly context: GqlContext,
+    @Inject(CONTEXT) context: GqlContext,
     private readonly pokemonAPI: PokemonAPI
   ) {
-    super();
+    super(context);
   }
 
   getAnimals() {
@@ -42,7 +42,7 @@ export class AnimalsAPI extends GqlDataSource {
           name: 'moose',
         },
       ],
-      pokemon
-    }
+      pokemon,
+    };
   }
 }

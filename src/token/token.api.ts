@@ -5,8 +5,8 @@ import { GqlDataSource } from 'src/graphql/gql-data-source.class';
 
 @Injectable({ scope: Scope.REQUEST })
 export class TokenAPI extends GqlDataSource {
-  constructor(@Inject(CONTEXT) public readonly context: GqlContext) {
-    super();
+  constructor(@Inject(CONTEXT) context: GqlContext) {
+    super(context);
   }
 
   async getToken() {
